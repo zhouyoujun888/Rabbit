@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <el-button type="danger">Danger</el-button>
+  <el-button type="primary">Danger</el-button>
 </template>
 
 <style scoped>
