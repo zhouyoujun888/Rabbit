@@ -1,10 +1,12 @@
 <script setup>
+import { useScroll } from "@vueuse/core";
+const { y } = useScroll(window);
 import { useCounterStore } from "@/stores/category.js";
 const store = useCounterStore();
 </script>
 
 <template>
-  <div class="app-header-sticky">
+  <div class="app-header-sticky" :class="{ show: y > 77 }">
     <div class="container">
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
@@ -39,7 +41,7 @@ const store = useCounterStore();
 
   // 状态二：移除平移 + 完全不透明
   &.show {
-    transition: all 0.3s linear;
+    transition: all 0.4s linear;
     transform: none;
     opacity: 1;
   }
