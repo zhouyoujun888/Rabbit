@@ -2,7 +2,7 @@
 import { onMounted, ref } from "vue";
 import { getHotApi } from "@/apis/home";
 import HomePanel from "@/views/Home/components/HomePanel.vue";
-const price = ref(888.88);
+
 const hotList = ref([]);
 const getHotList = async () => {
   const res = await getHotApi();
@@ -14,13 +14,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <HomePanel title="人气推荐" sub-title="人气推荐 好多商品">
+  <HomePanel title="人气推荐" sub-title="人气推荐 不容错过">
     <ul class="goods-list">
       <li v-for="item in hotList" :key="item.id">
         <RouterLink to="/">
-          <img :src="item.picture" alt="" />
-          <p class="name">{{ item.name }}</p>
-          <p class="price">&yen;{{ price }}</p>
+          <img v-lazy-img="item.picture" alt="" />
+          <p class="title">{{ item.title }}</p>
+          <p class="title-alt">{{ item.alt }}</p>
         </RouterLink>
       </li>
     </ul>
@@ -58,9 +58,9 @@ onMounted(() => {
       overflow: hidden;
       white-space: nowrap;
     }
-
-    .price {
-      color: $priceColor;
+    .title-alt {
+      color: #999;
+      font-size: 16px;
     }
   }
 }
