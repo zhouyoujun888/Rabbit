@@ -1,19 +1,24 @@
-import httpInstance from '@/utils/http.js'
-export function getBannerAPI () {
+import httpInstance from "@/utils/http.js";
+export function getBannerAPI() {
   return httpInstance({
-    url:'/home/banner'
-  })
+    url: "/home/banner",
+  });
 }
 
 export const getNewApi = () => {
   return httpInstance({
-    url:'/home/new'
-  })
-}
-
+    url: "/home/new",
+  });
+};
 
 export const getHotApi = () => {
   return httpInstance({
-    url:'/home/hot'
-  })
-}
+    url: "/home/hot",
+  });
+};
+
+export const getGoodsApi = () => {
+  return httpInstance({
+    url: "/home/goods",
+  });
+};
